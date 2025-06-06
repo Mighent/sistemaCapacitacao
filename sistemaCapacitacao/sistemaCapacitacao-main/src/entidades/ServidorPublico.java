@@ -15,6 +15,29 @@ public class ServidorPublico {
         private String cpf;
         private String lotacao;
         private String email;
+        private double horasExtras;
+
+        public ServidorPublico(){}
+
+        public ServidorPublico(int matricula, String nome){
+                this.matricula = matricula;
+                this.nome = nome;
+        }
+        public ServidorPublico(int matricula, String nome, String cargo){
+                this.matricula = matricula;
+                this.nome = nome;
+                this.cargo = cargo;
+
+        }
+
+
+        public double getHorasExtras() {
+                return horasExtras;
+        }
+
+        public void setHorasExtras(double horasExtras) {
+                this.horasExtras = horasExtras;
+        }
 
         public String getEmail() {
                 return email;
@@ -127,4 +150,26 @@ public class ServidorPublico {
         public void setCpf(String cpf) {
                 this.cpf = cpf;
         }
+
+
+        public double calcularSalarioHorasExtras (double horasTrabalhas, double valorHora){
+            double salarioMensal = salario + (horasTrabalhas*valorHora);
+            horasExtras = salarioMensal;
+                return (salarioMensal);
+        }
+
+        public double calcularSalarioTotal(double salario){
+                salario = salario + horasExtras;
+                return salario;
+        }
+        public double calcularNumeros (double... numeros){
+                double soma= 0;
+                for(double numero : numeros){
+                        soma += numero;
+                }
+                return soma;
+        }
+
+
+
 }
