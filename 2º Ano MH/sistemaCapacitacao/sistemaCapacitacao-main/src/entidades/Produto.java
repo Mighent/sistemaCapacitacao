@@ -4,7 +4,7 @@ public class Produto {
 
         private String nome;
         private double preco;
-        private int quatidade;
+        private int quantidade;
 
     public String getNome() {
         return nome;
@@ -23,11 +23,30 @@ public class Produto {
     }
 
     public int getQuatidade() {
-        return quatidade;
+        return quantidade;
     }
 
     public void setQuatidade(int quatidade) {
-        this.quatidade = quatidade;
+        this.quantidade = quatidade;
     }
-    public  TotalValueInStock()
+    public double TotalValueInStock(){
+        double total = getQuatidade() * getPreco();
+        return (total);
+    }
+    public void AddProducts(int quantidade){
+        this.quantidade += quantidade;
+        mostrarInformacao();
+    }
+    public void RemoveProducts(int quantidade){
+        this.quantidade -= quantidade;
+        mostrarInformacao();
+    }
+    public void mostrarInformacao(){
+        System.out.println("Nome: "+ getNome()+ "Preço: "+ getPreco()+ "Quantidade: "+ getQuatidade()+ "Total"+ TotalValueInStock());
+    }
+    public Produto(String nome, double preco, int quantidade){
+        this.quantidade = quantidade;
+        this.preco = preco;
+        this.nome = nome;
+    }
 }
