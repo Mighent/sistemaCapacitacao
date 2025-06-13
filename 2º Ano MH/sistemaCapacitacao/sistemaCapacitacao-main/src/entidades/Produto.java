@@ -49,4 +49,13 @@ public class Produto {
         this.preco = preco;
         this.nome = nome;
     }
+    public String toString(){
+        return nome
+                +", $"
+                + String.format("%.2f", preco)
+                + ", "
+                + quantidade
+                + "units, Total: $ "
+                + String.format("%.2f", TotalValueInStock());
+    }
 }
